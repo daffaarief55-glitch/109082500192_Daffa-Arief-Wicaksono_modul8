@@ -1,5 +1,5 @@
 # <h1 align="center">Laporan Praktikum Modul 8 - Queue</h1>
-<p align="center">Muhammad Dhimas Hafizh Fathurrahman - 2311102151</p>
+<p align="center">Daffa Arief Wicaksono - 109082500192</p>
 
 ## Dasar Teori
 
