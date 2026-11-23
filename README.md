@@ -667,25 +667,9 @@ int main() {
     return 0;
 }
 ```
-### Output Unguided 1 :
-
-```
-Hello World
-----------------------
- H - T 	 | Queue info
-----------------------
--1 - -1	 | empty queue
-0 - 0	 | 5 
-0 - 1	 | 5 2 
-0 - 2	 | 5 2 7 
-0 - 1	 | 2 7 
-0 - 2	 | 2 7 4 
-0 - 1	 | 7 4 
-0 - 0	 | 4 
-```
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/Pertemuan8_Modul8/Output-Unguided1-1.png)
+![Screenshot Output1](https://github.com/daffaarief55-glitch/109082500192_Daffa-Arief-Wicaksono_modul8/blob/main/output/output1.png?raw=true)
 
 Program ini membangun ADT Queue berbasis array dengan kapasitas 5 elemen (`MAXQ = 5`) memakai Alternatif 1, yaitu **head tetap, tail bergerak**. Struktur `Queue` berisi array `info` beserta penanda `head` dan `tail`. `createQueue` menetapkan keduanya ke -1 untuk menandai antrean kosong, dan `isEmptyQueue` memeriksa kondisi itu. `isFullQueue` menghasilkan nilai benar ketika `tail` telah sampai di indeks terakhir (4).
 
@@ -695,7 +679,33 @@ Output mengikuti urutan pemanggilan di `main`. Setelah `enqueue` 5, 2, dan 7, is
 
 ### 2. Membuat implementasi ADT Queue dengan mekanisme Alternatif 2 (head bergerak, tail bergerak)
 
-File `queue.h` sama dengan Unguided 1. Hanya `queue.cpp` yang berbeda.
+**queue.h**
+```C++
+#ifndef QUEUE_H
+#define QUEUE_H
+
+#include <iostream>
+using namespace std;
+
+typedef int infotype;
+const int MAXQ = 5;
+
+struct Queue {
+    infotype info[MAXQ];
+    int head, tail;
+};
+
+void createQueue(Queue &Q);
+bool isEmptyQueue(Queue Q);
+bool isFullQueue(Queue Q);
+void enqueue(Queue &Q, infotype x);
+infotype dequeue(Queue &Q);
+void printInfo(Queue Q);
+
+#endif
+```
+
+
 
 **queue.cpp**
 ```C++
@@ -799,28 +809,10 @@ int main() {
 ```
 ### Output Unguided 2 :
 
-```
-Hello World
-----------------------
- H - T 	 | Queue info
-----------------------
--1 - -1	 | empty queue
-0 - 0	 | 5 
-0 - 1	 | 5 2 
-0 - 2	 | 5 2 7 
-1 - 2	 | 2 7 
-1 - 3	 | 2 7 4 
-2 - 3	 | 7 4 
-3 - 3	 | 4 
---- uji penuh semu ---
-3 - 4	 | 4 8 
-0 - 2	 | 4 8 9 
-0 - 3	 | 4 8 9 6 
-0 - 4	 | 4 8 9 6 1 
-```
+
 
 ##### Output 1
-![Screenshot Output Unguided 2_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/Pertemuan8_Modul8/Output-Unguided2-1.png)
+![Screenshot Output2](https://github.com/daffaarief55-glitch/109082500192_Daffa-Arief-Wicaksono_modul8/blob/main/output/output2.png?raw=true)
 
 Pada Alternatif 2, **head ikut berpindah**. `dequeue` tidak lagi menggeser data; ia hanya menaikkan `head` satu langkah (`Q.head++`) sehingga prosesnya lebih ringan. Hal ini terlihat pada output: setelah `dequeue` pertama, H-T berubah dari 0-2 menjadi 1-2. Bila elemen yang diambil adalah satu-satunya yang tersisa (`head == tail`), antrean dikembalikan ke keadaan kosong (-1, -1).
 
@@ -830,7 +822,31 @@ Baris uji tambahan di `main` memperlihatkan mekanismenya. Setelah `enqueue(8)`, 
 
 ### 3. Membuat implementasi ADT Queue dengan mekanisme Alternatif 3 (head dan tail berputar)
 
-File `queue.h` sama dengan Unguided 1. Hanya `queue.cpp` yang berbeda.
+**queue.h**
+```C++
+#ifndef QUEUE_H
+#define QUEUE_H
+
+#include <iostream>
+using namespace std;
+
+typedef int infotype;
+const int MAXQ = 5;
+
+struct Queue {
+    infotype info[MAXQ];
+    int head, tail;
+};
+
+void createQueue(Queue &Q);
+bool isEmptyQueue(Queue Q);
+bool isFullQueue(Queue Q);
+void enqueue(Queue &Q, infotype x);
+infotype dequeue(Queue &Q);
+void printInfo(Queue Q);
+
+#endif
+```
 
 **queue.cpp**
 ```C++
@@ -929,30 +945,8 @@ int main() {
 ```
 ### Output Unguided 3 :
 
-```
-Hello World
-----------------------
- H - T 	 | Queue info
-----------------------
--1 - -1	 | empty queue
-0 - 0	 | 5 
-0 - 1	 | 5 2 
-0 - 2	 | 5 2 7 
-1 - 2	 | 2 7 
-1 - 3	 | 2 7 4 
-2 - 3	 | 7 4 
-3 - 3	 | 4 
---- uji circular ---
-3 - 4	 | 4 8 
-3 - 0	 | 4 8 9 
-3 - 1	 | 4 8 9 6 
-3 - 2	 | 4 8 9 6 1 
-Queue penuh!
-3 - 2	 | 4 8 9 6 1 
-```
-
 ##### Output 1
-![Screenshot Output Unguided 3_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/Pertemuan8_Modul8/Output-Unguided3-1.png)
+![Screenshot Output3](https://github.com/daffaarief55-glitch/109082500192_Daffa-Arief-Wicaksono_modul8/blob/main/output/output3.png?raw=true)
 
 Alternatif 3 menerapkan **circular queue**, yaitu `head` dan `tail` bergerak melingkar. Setiap kenaikan indeks dihitung dengan `(indeks + 1) % MAXQ`, sehingga setelah indeks 4 posisi kembali ke 0. Dengan demikian tidak ada elemen yang perlu digeser, baik pada `enqueue` maupun `dequeue`, dan masalah penuh semu pada Alternatif 2 tidak muncul [1][2].
 
