@@ -279,8 +279,7 @@ Queue kosong
 IsEmpty : 1
 ```
 
-##### Output 1
-![Screenshot Output Guided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/Pertemuan8_Modul8/Output-Guided1-1.png)
+
 
 Pada Guided 1, queue dibuat dengan **linked list** atau representasi pointer. Tiap elemen bertipe `elmQ` menyimpan data (`info`) dan alamat elemen sesudahnya (`next`). Struktur `queue` cukup memegang dua pointer: `head` yang menunjuk elemen paling depan dan `tail` yang menunjuk elemen paling belakang. Antrean dinyatakan kosong ketika `head` bernilai `Nil`, dan `CreateQueue` membentuk antrean kosong dengan mengisi `head` dan `tail` dengan `Nil`. Karena elemen dibuat satu per satu saat dibutuhkan, jumlah data tidak dibatasi seperti pada queue array di bagian unguided [1].
 
@@ -533,8 +532,7 @@ Mengahapus data Hafizh...
 1. Fathur
 ```
 
-##### Output 1
-![Screenshot Output Guided 2_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/Pertemuan8_Modul8/Output-Guided2-1.png)
+
 
 Guided 2 menyusun queue dari array `string` berkapasitas 5 (`MAKSIMAL = 5`) yang dipakai untuk menyimpan nama. Struktur `queue` memuat array `nama` beserta penanda `head` dan `tail`. Antrean yang belum terisi ditandai dengan `head = -1` dan `tail = -1` yang diatur lewat `CreateQueue`, lalu diperiksa oleh `isEmpty`. File `queue.cpp` memuat ketiga cara kerja queue array sekaligus, namun hanya satu yang dibiarkan aktif sementara dua lainnya dijadikan komentar. Yang berjalan pada program ini adalah **implementasi 1 (head diam, tail bergerak)**.
 
@@ -544,11 +542,7 @@ Dua versi yang dikomentari adalah implementasi 2 dan 3. Pada implementasi 2 (hea
 
 Pada eksekusi, enam nama dimasukkan ke antrean yang hanya muat lima. Lima nama pertama (Dimas, Arvin, Rizal, Hafizh, Fathur) tersimpan, sedangkan Daffa ditolak dengan pesan antrean penuh. Empat kali `deQueue` kemudian mengeluarkan Dimas, Arvin, Rizal, dan Hafizh sesuai urutan masuknya (FIFO), dan hanya Fathur yang tersisa di antrean.
 
-### 3. ...
 
-```C++
-source code guided 3
-```
 penjelasan singkat guided 3
 
 ## Unguided 
